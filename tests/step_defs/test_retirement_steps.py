@@ -11,6 +11,7 @@ CONVERTERS = {
     'birthYear' : int,
     'retireAge' : int,
     'retireMonthNum': int,
+    'monthOfBirth': int,
 }
     
 scenarios('../features/retirement.feature', example_converters=CONVERTERS)
@@ -23,11 +24,11 @@ def start():
 def birthYear(birthYear):
     return birthYear
 
-@when('the <"birthMonth>" is entered by the user')
-def birthMonth(birthMonth):
-    return birthMonth
+@when('the <"monthOfBirth>" is entered by the user')
+def birthMonth(monthOfBirth):
+    return monthOfBirth
 
 @then('the age of retirement is "<retireAge>" and the month of retirement is "<retireMonthNum>"')
-def step_function(birthYear, birthMonth, retireAge, retireMonthNum):
-   year, month, age, monthNum = myFunc2(birthYear, birthMonth, retireAge, retireMonthNum)
-   assert year == birthYear and month == birthMonth and age == retireAge and monthNum == retireMonthNum
+def step_function(birthYear, monthOfBirth, retireAge, retireMonthNum):
+   year, month, age, monthNum = myFunc2(birthYear, monthOfBirth, retireAge, retireMonthNum)
+   assert year == birthYear and month == monthOfBirth and age == retireAge and monthNum == retireMonthNum
