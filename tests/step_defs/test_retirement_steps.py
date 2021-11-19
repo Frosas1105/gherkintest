@@ -1,34 +1,33 @@
-from pytest_bdd import scenarios, given, when, then, parsers
-from pytest_bdd.scenario import scenario
-from retirement import *
+import pytest
+from pytest_bdd import scenarios, given, when, then
+from SScalcRosas import *
 
-CONVERTERS = {
-    'dates': int,
+EXTRA_TYPES = {
+    'Number': int
 }
 
-scenarios('../features/retirement.feature')
+CONVERTERS = {
+    'birthYear' : int,
+    'retireAge' : int,
+    'retireMonthNum': int,
+}
+    
+scenarios('../features/retirement.feature', example_converters=CONVERTERS)
 
-
-def test_birthyear():
+@given('the user has opened the app')
+def step_function():
     pass
 
-@given('birth year entered is under 1900')
-def test_input():
-   pass
-    
-@then('assertion statement is raised')
-def test_input1899():
-    with pytest.raises(ValueError):
-        calculate_retirement_age(1899)
-    
-@given('birth year entered is over 3000')
-def test_input2():
+@when('the <"birthYear>" is entered by the user')
+def step_function(birthYear):
+    return birthYear
+
+@when('the <"birthMonth>" is entered by the user')
+def step_function(birthMonth):
+    # Add Your Code Here
     pass
 
-@then('assertion statement is raised')
-def test_input3001():
-    with pytest.raises(ValueError):
-        calculate_retirement_age(3001)
-
-
-    
+@then(Parser('the age of retirement is "<retireAge>" and the month of retirement is "<retireMonthNum>"'))
+def step_function(session: Session):
+    # Add Your Code Here
+    pass
