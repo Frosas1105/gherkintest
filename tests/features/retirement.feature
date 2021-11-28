@@ -9,7 +9,7 @@ Scenario Outline: calculate retirement age and month
 
     Examples: birth year ranges
     | birthYear | monthOfBirth | retireAge | retireMonthNum |
-    | 1931      | 1             65        | 0              |
+    | 1931      | 1            | 65        | 0              |
     | 1938      | 1            | 65        | 2              |
     | 1939      | 1            | 65        | 4              |
     | 1940      | 1            | 65        | 6              |
